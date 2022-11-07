@@ -13,7 +13,7 @@
 		37D47C852918D7380080F9FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D47C832918D7380080F9FD /* LaunchScreen.storyboard */; };
 		37D47C972918D7620080F9FD /* FireStoreDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C8D2918D7620080F9FD /* FireStoreDBModel.swift */; };
 		37D47C982918D7620080F9FD /* PostedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C8F2918D7620080F9FD /* PostedTableViewController.swift */; };
-		37D47C992918D7620080F9FD /* TopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C902918D7620080F9FD /* TopTableViewController.swift */; };
+		37D47C992918D7620080F9FD /* SoftNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C902918D7620080F9FD /* SoftNameTableViewController.swift */; };
 		37D47C9A2918D7620080F9FD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C912918D7620080F9FD /* PostViewController.swift */; };
 		37D47C9B2918D7620080F9FD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C922918D7620080F9FD /* LoginViewController.swift */; };
 		37D47C9C2918D7620080F9FD /* TitleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D47C932918D7620080F9FD /* TitleTableViewController.swift */; };
@@ -32,7 +32,7 @@
 		37D47C862918D7380080F9FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37D47C8D2918D7620080F9FD /* FireStoreDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireStoreDBModel.swift; sourceTree = "<group>"; };
 		37D47C8F2918D7620080F9FD /* PostedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostedTableViewController.swift; sourceTree = "<group>"; };
-		37D47C902918D7620080F9FD /* TopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTableViewController.swift; sourceTree = "<group>"; };
+		37D47C902918D7620080F9FD /* SoftNameTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftNameTableViewController.swift; sourceTree = "<group>"; };
 		37D47C912918D7620080F9FD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		37D47C922918D7620080F9FD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37D47C932918D7620080F9FD /* TitleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				37D47C922918D7620080F9FD /* LoginViewController.swift */,
-				37D47C902918D7620080F9FD /* TopTableViewController.swift */,
+				37D47C902918D7620080F9FD /* SoftNameTableViewController.swift */,
 				37D47C932918D7620080F9FD /* TitleTableViewController.swift */,
 				37D47C8F2918D7620080F9FD /* PostedTableViewController.swift */,
 				37D47C912918D7620080F9FD /* PostViewController.swift */,
@@ -255,7 +255,7 @@
 				37D47C9C2918D7620080F9FD /* TitleTableViewController.swift in Sources */,
 				37D47C972918D7620080F9FD /* FireStoreDBModel.swift in Sources */,
 				37D47C982918D7620080F9FD /* PostedTableViewController.swift in Sources */,
-				37D47C992918D7620080F9FD /* TopTableViewController.swift in Sources */,
+				37D47C992918D7620080F9FD /* SoftNameTableViewController.swift in Sources */,
 				37D47C7B2918D7360080F9FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -69,7 +69,7 @@
         <!--プログラム言語-->
         <scene sceneID="PNx-RH-Zfd">
             <objects>
-                <tableViewController storyboardIdentifier="TableVC" id="BIO-ic-Kri" customClass="TopTableViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableVC" id="BIO-ic-Kri" customClass="SoftNameTableViewController" customModule="Memory" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="GOg-Fl-4Wr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

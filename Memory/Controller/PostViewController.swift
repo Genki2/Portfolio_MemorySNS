@@ -169,11 +169,10 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     //===============================
     // MARK: FireStoregeへ送信処理
     //===============================
-    
     func sendAndGetImageURL(){
         
         // FireStoregeにcontentImageのフォルダ作成
-        // アップロードする画像名はランダム
+        // アップロードする画像名ユニーク
         let imageRef = Storage.storage().reference().child("contentImage").child("\(UUID().uuidString).jpg")
         var imageData:Data = Data()
         
@@ -182,6 +181,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UINav
             imageData = (self.contentImageView.image?.jpegData(compressionQuality: 0.5))!
         }
         
+        //HUD表示
         HUD.dimsBackground = false
         HUD.show(.progress)
         print(imageData)
@@ -201,6 +201,7 @@ class PostViewController: UIViewController,UIImagePickerControllerDelegate,UINav
                     return
                 }
                 
+                //HUD非表示
                 HUD.hide()
                 
                 //FireStoregeにアップロードした際のdownloadURLを代入

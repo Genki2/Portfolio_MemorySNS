@@ -15,7 +15,7 @@ class TitleTableViewController: UITableViewController ,UISearchBarDelegate{
     var collectionName = String()
     var fireStoreDBArray:[FireStoreDBModel] = []
     var titeArray:[String] = []
-    var selectName = String()
+    var selectedTitle = String()
     
     //検索結果
     var searchResult:[String] = []
@@ -38,19 +38,20 @@ class TitleTableViewController: UITableViewController ,UISearchBarDelegate{
         //Listdataをリセットする　＊戻るたびに増えている
         fireStoreDBArray.removeAll()
         
-        //firestoreのDBからデータ受信
-        //collectionName タップした際のコレクション名
-        fireStoreDB.collection("\(collectionName)").getDocuments { [self] (snapShot, error) in
+        //===============================
+        // MARK: fireStoreデータ取得処理
+        //===============================
+        fireStoreDB.collection("\(collectionName)").getDocuments { [self] (document, error) in
             
             if error != nil{
                 return
             }
             
             //ドキュメントの中身全て取得
-            if let snapShotDoc = snapShot?.documents{
+            if let documentArray = document?.documents{
                 
                 //ドキュメントの中身1つ1つ確認
-                for doc in snapShotDoc{
+                for doc in documentArray{
                     
                     //ドキュメントの中身のデータ取得
                     let data = doc.data()
@@ -68,7 +69,7 @@ class TitleTableViewController: UITableViewController ,UISearchBarDelegate{
                         self.titeArray.append(i.title)
                     }
                     
-                    //重複したタイトル削除
+                    //重複したタイトル名を削除
                     self.titeArray = self.titeArray.uniqued()
                     
                     //検索初期値代入
@@ -126,11 +127,11 @@ class TitleTableViewController: UITableViewController ,UISearchBarDelegate{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //タップした場所の値を渡す
-        selectName = titeArray[indexPath.row]
+        selectedTitle = titeArray[indexPath.row]
         
         //画面遷移
         let TimeLineTableVC = self.storyboard?.instantiateViewController(identifier: "TimeLineTableVC") as! PostedTableViewController
-        TimeLineTableVC.selectedName = selectName
+        TimeLineTableVC.selectedName = selectedTitle
         TimeLineTableVC.fireStoreDBArray = fireStoreDBArray
         TimeLineTableVC.collectionName = collectionName
         
@@ -154,6 +155,12 @@ class TitleTableViewController: UITableViewController ,UISearchBarDelegate{
         
         //何も入力されていなくてもReturnキーを押せるようにする。
         searchBar.enablesReturnKeyAutomatically = false
+        
+        //隙間無くすコード
+        if #available(iOS 15, *) {
+            tableView.sectionHeaderTopPadding = 0.0
+        }
+        
         return searchBar
     }
     

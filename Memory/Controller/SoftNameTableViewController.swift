@@ -10,13 +10,13 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class TopTableViewController: UITableViewController {
+class SoftNameTableViewController: UITableViewController {
     
     //DBの場所を指定
     let fireStoreDB = Firestore.firestore().collection("soft").document("soFnPZWp7aI3WU3cl5bc")
     
-    var topTitleArray = [String]()
-    var selectName = String()
+    var softNameArray = [String]()
+    var selectedSoftName = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,20 +45,22 @@ class TopTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //===============================
+        // MARK: fireStoreデータ取得処理
+        //===============================
         //getDocument _ データベースからドキュメントを取得
-        fireStoreDB.getDocument { [self] (snapShot, error) in
+        fireStoreDB.getDocument { [self] (document, error) in
             
             if error != nil{
                 return
             }
             
-            //snapShot?.data() _ ドキュメントの中身
-            let fireStoreData = snapShot?.data()
-            let fireStoreDataName = fireStoreData!["softType"] as! String
+            //ドキュメントの中身を取得
+            let document = document?.data()
+            let documentName = document!["softType"] as! String
             
-            // GetStringからListArrayを作成
             // softTypeの中身{ swift Kotorin }
-            topTitleArray = fireStoreDataName.components(separatedBy: " ")
+            softNameArray = documentName.components(separatedBy: " ")
             
             //リロードする
             self.tableView.reloadData()
@@ -76,13 +78,13 @@ class TopTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return topTitleArray.count
+        return softNameArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let label1 = cell.contentView.viewWithTag(1) as! UILabel
-        label1.text = topTitleArray[indexPath.row]
+        label1.text = softNameArray[indexPath.row]
         return cell
     }
     
@@ -90,11 +92,11 @@ class TopTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //タップした場所の値を渡す
-        selectName = topTitleArray[indexPath.row]
+        selectedSoftName = softNameArray[indexPath.row]
         
         //画面遷移
         let ListTableVC = self.storyboard?.instantiateViewController(identifier: "ListTableVC") as! TitleTableViewController
-        ListTableVC.collectionName = selectName
+        ListTableVC.collectionName = selectedSoftName
         self.navigationController?.pushViewController(ListTableVC, animated: true)
     }
     
