@@ -10,6 +10,7 @@ MVC
 * FirebaseFirestore
 * FirebaseStorage
 * PKHUD
+* SDWebImage
 
 ## 機能
 * FirebaseのDB利用
